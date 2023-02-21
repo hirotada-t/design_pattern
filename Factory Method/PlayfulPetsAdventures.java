@@ -558,7 +558,7 @@ class FairyWorld{
         System.out.println("("+ invoice.getTitle() +")");
         System.out.println("----------------- breakdown -------------------");
         for (Map.Entry<String, Double> entry : rentedPets.entrySet()) {
-            System.out.println(" ・ " + entry.getKey() + " ........ " + entry.getValue() + " dollars");
+            System.out.println(" - " + entry.getKey() + " ........ " + entry.getValue() + " dollars");
         }
         System.out.println("-----------------------------------------------------");
         System.out.println("total ...... "+ invoice.getTotalBill() +" dollars" + System.lineSeparator());
