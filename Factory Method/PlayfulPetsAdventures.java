@@ -604,7 +604,7 @@ class FairyWorld{
     }
 }
 
-public class PlayfulPetsAdventures{
+class PlayfulPetsAdventures{
     public static void main(String[] args){
         FairyWorld fairyWorld = new FairyWorld();
         Person jessica = new Person("Jessica", "Roller", 30, 1.65, 55, "female");
