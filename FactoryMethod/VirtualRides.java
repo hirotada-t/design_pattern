@@ -163,7 +163,7 @@ class FairyWorld {
 }
 
 class VirtualRides {
-    public static void main(String[] args) {
+    public static void main(String[] args){
         FairyWorld fairyWorld = new FairyWorld();
         Person araisan = new Person("Arai", "Takahiro", 1.89, 102.5);
         Person jessica = new Person("Jessica", "Roller", 1.20, 30.5);
