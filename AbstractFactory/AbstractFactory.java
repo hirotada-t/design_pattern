@@ -385,6 +385,7 @@ class LaserFinalBossMonster extends LaserHighTierMonster implements FinalBossMon
     }
 }
 
+// Generic Abstract Factory
 class GenericLaserTagMonsterFactory implements LaserTagMonsterFactory{
     public LowTierMonster createLowTierMonster(){
         return new LaserLowTierMonster(RandomWrapper.getRan(1,20));
@@ -411,9 +412,6 @@ class GenericLaserTagMonsterFactory implements LaserTagMonsterFactory{
     };
 }
 
-//--------------------------------------
-// Antartcticaモンスターを定義し、LaserTagMonsterFactory Abstract Factoryを実装したAntartctica Factoryを作成してください。
-// また、メソッドを上書きしてください。（例. 各Antartcticaモンスターには異なる初期スキルがあります。）
 class AntarcticaLowTierMonster extends LaserLowTierMonster{
     public AntarcticaLowTierMonster(int hp, int attack, int defense, int level, int points, int movementSpeed){
         super(hp, attack, defense, level, points, movementSpeed);
@@ -499,7 +497,7 @@ class AntarcticaFinalBossMonster extends LaserFinalBossMonster{
     }
 }
 
-// Antarctica abstract factoryの実装
+// Antarctica abstract factory
 class AntarcticaLaserTagMonsterFactory implements LaserTagMonsterFactory {
     public LowTierMonster createLowTierMonster(){
         return new AntarcticaLowTierMonster(RandomWrapper.getRan(1,20));
@@ -523,6 +521,119 @@ class AntarcticaLaserTagMonsterFactory implements LaserTagMonsterFactory {
 
     public FinalBossMonster createFinalBossMonster(){
         return new AntarcticaFinalBossMonster(RandomWrapper.getRan(40,100));
+    };
+}
+//--------------------------------------
+
+class UndreworldLowTierMonster extends LaserLowTierMonster{
+    public UndreworldLowTierMonster(int hp, int attack, int defense, int level, int points, int movementSpeed){
+        super(hp, attack, defense, level, points, movementSpeed);
+    }
+
+    public UndreworldLowTierMonster(int level){
+        super(level);
+    }
+
+    public String getMonsterName(){
+        return "Undreworld Low Tier Monster";
+    }
+}
+
+class UndreworldMidTierMonster extends LaserMidTierMonster{
+
+    public UndreworldMidTierMonster(int hp, int attack, int defense, int level, int points, int movementSpeed){
+        super(hp, attack, defense, level, points, movementSpeed);
+    }
+
+    public UndreworldMidTierMonster(int level){
+        super(level);
+    }
+
+    public String getMonsterName(){
+        return "Undreworld Mid Tier Monster";
+    }
+};
+
+class UndreworldHighTierMonster extends LaserHighTierMonster{
+    public UndreworldHighTierMonster(int hp, int attack, int defense, int level, int points, int movementSpeed){
+        super(hp, attack, defense, level, points, movementSpeed);
+    }
+
+    public UndreworldHighTierMonster(int level){
+        super(level);
+    }
+
+    public String getMonsterName(){
+        return "Undreworld High Tier Monster";
+    }
+};
+
+class UndreworldFlyingMonster extends LaserFlyingMonster{
+    public UndreworldFlyingMonster(int hp, int attack, int defense, int level, int points, int movementSpeed, int flyingSpeed){
+        super(hp, attack, defense, level, points, movementSpeed, flyingSpeed);
+    }
+
+    public UndreworldFlyingMonster(int level){
+        super(level);
+    }
+
+    public String getMonsterName(){
+        return "Undreworld Flying Monster";
+    }
+};
+
+class UndreworldHybridMonster extends LaserHybridMonster{
+    public UndreworldHybridMonster(int hp, int attack, int defense, int level, int points, int movementSpeed, int flyingSpeed, int ascendSpeed, int descendSpeed){
+        super(hp, attack, defense, level, points, movementSpeed, flyingSpeed, ascendSpeed, descendSpeed);
+    }
+
+    public UndreworldHybridMonster(int level){
+        super(level);
+    }
+
+    public String getMonsterName(){
+        return "Undreworld Hybrid Monster";
+    }
+}
+
+class UndreworldFinalBossMonster extends LaserFinalBossMonster{
+    public UndreworldFinalBossMonster(int hp, int attack, int defense, int level, int points, int movementSpeed){
+        super(hp, attack, defense, level, points, movementSpeed);
+    }
+
+    public UndreworldFinalBossMonster(int level){
+        super(level);
+    }
+
+    public String getMonsterName(){
+       return "Undreworld Final Boss Monster";
+    }
+}
+
+// Undreworld abstract factory
+class UndreworldLaserTagMonsterFactory implements LaserTagMonsterFactory {
+    public LowTierMonster createLowTierMonster(){
+        return new UndreworldLowTierMonster(RandomWrapper.getRan(1,20));
+    };
+
+    public MidTierMonster createMidTierMonster(){
+        return new UndreworldMidTierMonster(RandomWrapper.getRan(5,30));
+    };
+
+    public HighTierMonster createHighTierMonster(){
+        return new UndreworldHighTierMonster(RandomWrapper.getRan(15,50));
+    };
+
+    public FlyingMonster createFlyingMonster(){
+        return new UndreworldFlyingMonster(RandomWrapper.getRan(15,50));
+    };
+
+    public HybridMonster createHybridMonster(){
+        return new UndreworldHybridMonster(RandomWrapper.getRan(15,50));
+    };
+
+    public FinalBossMonster createFinalBossMonster(){
+        return new UndreworldFinalBossMonster(RandomWrapper.getRan(40,100));
     };
 }
 //--------------------------------------
@@ -551,12 +662,16 @@ class FairyWorld{
     }
 }
 
-class Main{
+class AbstractFactory{
     public static void main(String[] args){
         FairyWorld fairyWorld = new FairyWorld();
         Person jessica = new Person("Jessica", "Roller", 30, 1.65, 95, "female");
 
         fairyWorld.playLaserTag(jessica, new GenericLaserTagMonsterFactory());
+        System.out.println("");
         fairyWorld.playLaserTag(jessica, new AntarcticaLaserTagMonsterFactory());
+        System.out.println("");
+        fairyWorld.playLaserTag(jessica, new UndreworldLaserTagMonsterFactory());
+        System.out.println("");
     }
 }
