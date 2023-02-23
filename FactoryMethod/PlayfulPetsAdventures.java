@@ -1,6 +1,5 @@
 import java.util.Random;
 import java.util.List;
-import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Arrays;
@@ -182,6 +181,10 @@ class Person extends Mammal{
         return this.name.toString();
     }
 
+    public int getAge(){
+        return this.age;
+    }
+
     public String toString(){
         return super.toString() + ". The name of this Person is " + this.getName();
     }
@@ -208,11 +211,11 @@ abstract class PlayfulPetAssistant{
     protected static String[] availableTours = {"all-rounder pack", "deluxe rounder pack"};
 
     public String[] getActivities(){
-        return this.availableActivities;
+        return PlayfulPetAssistant.availableActivities;
     }
 
     public String[] getAvailableTours(){
-        return this.availableTours;
+        return PlayfulPetAssistant.availableTours;
     }
 
     public boolean isValidTour(String tour){
@@ -239,7 +242,7 @@ abstract class PlayfulPetAssistant{
 
     public void reset(){
         this.currentPerson = null;
-        this.currentRentTime = this.DEFAULT_RENT_TIME;
+        this.currentRentTime = PlayfulPetAssistant.DEFAULT_RENT_TIME;
     }
 
     public double runAssistanceTour(Person person, int amount, String tour){
@@ -329,15 +332,15 @@ class Cat extends Mammal implements PlayfulPet{
     }
 
     public double getRentalCosts(){
-        return this.PLAYFUL_HOURLY_COSTS;
+        return Cat.PLAYFUL_HOURLY_COSTS;
     }
 
     public boolean likesActivity(String activity){
-        return Arrays.asList(this.LIKED_ACTIVITIES).contains(activity);
+        return Arrays.asList(Cat.LIKED_ACTIVITIES).contains(activity);
     };
 
     public boolean dislikesActivity(String activity){
-        return Arrays.asList(this.DISLIKED_ACTIVITIES).contains(activity);
+        return Arrays.asList(Cat.DISLIKED_ACTIVITIES).contains(activity);
     };
 
     public String doActivity(String activity){
@@ -395,15 +398,15 @@ class Dog extends Mammal implements PlayfulPet{
     }
 
     public double getRentalCosts(){
-        return this.PLAYFUL_HOURLY_COSTS;
+        return Dog.PLAYFUL_HOURLY_COSTS;
     }
 
     public boolean likesActivity(String activity){
-        return Arrays.asList(this.LIKED_ACTIVITIES).contains(activity);
+        return Arrays.asList(Dog.LIKED_ACTIVITIES).contains(activity);
     };
 
     public boolean dislikesActivity(String activity){
-        return Arrays.asList(this.DISLIKED_ACTIVITIES).contains(activity);
+        return Arrays.asList(Dog.DISLIKED_ACTIVITIES).contains(activity);
     };
 
     public String doActivity(String activity){
@@ -461,15 +464,15 @@ class Rabbit extends Mammal implements PlayfulPet{
     }
 
     public double getRentalCosts(){
-        return this.PLAYFUL_HOURLY_COSTS;
+        return Rabbit.PLAYFUL_HOURLY_COSTS;
     }
 
     public boolean likesActivity(String activity){
-        return Arrays.asList(this.LIKED_ACTIVITIES).contains(activity);
+        return Arrays.asList(Rabbit.LIKED_ACTIVITIES).contains(activity);
     };
 
     public boolean dislikesActivity(String activity){
-        return Arrays.asList(this.DISLIKED_ACTIVITIES).contains(activity);
+        return Arrays.asList(Rabbit.DISLIKED_ACTIVITIES).contains(activity);
     };
 
     public String doActivity(String activity){
@@ -614,5 +617,7 @@ class PlayfulPetsAdventures{
         fairyWorld.rentPet("Rabbit", jessica, 3);
         fairyWorld.rentPet("cat", jessica, 2);
         fairyWorld.getRentedPetsInvoice(jessica);
+        fairyWorld.rentPet("cat", eldred);
+        fairyWorld.getRentedPetsInvoice(eldred);
     }
 }

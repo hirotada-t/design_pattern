@@ -23,7 +23,8 @@ class Physique {
     }
 }
 
-interface Status {}
+interface Status {
+}
 
 class Person implements Status {
     private String firstName;
@@ -56,6 +57,7 @@ class Person implements Status {
 
 interface Attraction {
     abstract public String getName();
+
     abstract public boolean heightLimit(Person person);
 }
 
@@ -66,7 +68,7 @@ class JurassicPark implements Attraction {
     }
 
     public String getName() {
-        return this.ATTRACTION_NAME;
+        return JurassicPark.ATTRACTION_NAME;
     }
 
     public boolean heightLimit(Person person) {
@@ -81,13 +83,13 @@ class Terminator2_3D implements Attraction {
     }
 
     public String getName() {
-        return this.ATTRACTION_NAME;
+        return Terminator2_3D.ATTRACTION_NAME;
     }
 
     public boolean heightLimit(Person person) {
         return true;
     }
-} 
+}
 
 class FlightOfTheHippogriff implements Attraction {
     public static final String ATTRACTION_NAME = "Flight of the Hippogriff";
@@ -98,14 +100,14 @@ class FlightOfTheHippogriff implements Attraction {
     }
 
     public String getName() {
-        return this.ATTRACTION_NAME;
+        return FlightOfTheHippogriff.ATTRACTION_NAME;
     }
-    
+
     public boolean heightLimit(Person person) {
         double h = person.getHeight();
-        return this.MIN_HEIGHT < h && h < this.MAX_HEIGHT;
+        return FlightOfTheHippogriff.MIN_HEIGHT < h && h < FlightOfTheHippogriff.MAX_HEIGHT;
     }
-} 
+}
 
 abstract class RideExperience {
     public void runAttraction(Person person) {
@@ -126,13 +128,13 @@ class RideJurassicPark extends RideExperience {
     }
 }
 
-class RideTerminator2_3D extends RideExperience {    
+class RideTerminator2_3D extends RideExperience {
     public Attraction createAttraction() {
         return new Terminator2_3D();
     }
 }
 
-class RideFlightOfTheHippogriff extends RideExperience {   
+class RideFlightOfTheHippogriff extends RideExperience {
     public Attraction createAttraction() {
         return new FlightOfTheHippogriff();
     }
@@ -149,7 +151,7 @@ class FairyWorld {
 
     public void getAttractionList() {
         System.out.println("-----(Attraction List)-----");
-        for (Map.Entry<String, RideExperience> entry: this.attractionList.entrySet()) {
+        for (Map.Entry<String, RideExperience> entry : this.attractionList.entrySet()) {
             System.out.println(entry.getKey() + " : " + entry.getValue());
         }
         System.out.println("---------------------------");
@@ -160,8 +162,8 @@ class FairyWorld {
     }
 }
 
-class VirtualRides{
-    public static void main(String[] args){
+class VirtualRides {
+    public static void main(String[] args) {
         FairyWorld fairyWorld = new FairyWorld();
         Person araisan = new Person("Arai", "Takahiro", 1.89, 102.5);
         Person jessica = new Person("Jessica", "Roller", 1.20, 30.5);
