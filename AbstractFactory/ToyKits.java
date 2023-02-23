@@ -28,10 +28,35 @@ interface Product {
 }
 
 // General parts class
+// head
+// body
+// armss
+// legs
+// eyes
+// hands
+// feet
+
+// CyberVampire parts class
+// head
+// body
+// armss
+// legs
+// eyes
+// hands
+// feet
+
+// UnderworldCerberus parts class
+// head
+// body
+// armss
+// legs
+// eyes
+// hands
+// feet
 
 // AbstractFactory
 interface HumanoidToyKitFactory {
-  // parts FactoryMethod
+  // FactoryMethod
   // head
   // body
   // armss
