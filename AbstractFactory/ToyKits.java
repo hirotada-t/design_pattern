@@ -2,52 +2,100 @@ import java.util.HashMap;
 
 // Mini4WD
 class Spec {
-  protected int weightG;
-  protected int costYen;
+  private int weightG;
+  private int costYen;
+  private double speed;
+  
+  public Spec(int weightG, int costYen) {
+    this.weightG = weightG;
+    this.costYen = costYen;
+    this.speed = 0.0;
+  }
 }
 
-class Structore {
-  protected Parts battery;
+class Structure {
+  private Parts body;
+  private Parts battery;
   
-  public Structore() {}
+  public Structure(Parts body, Parts battery) {
+    this.body = body;
+    this.battery = battery;
+  }
+}
 
+class CreateOrder {
+  private String machineKey;
+  private int colorIndex;
+  private int rollers;
+  private boolean suspension;
+  
+  public CreateOrder(String machineKey,int colorIndex) {
+    this.machineKey = machineKey;
+    this.colorIndex = colorIndex;
+  }
+  
+  public CreateOrder(String machineKey,int colorIndex, int rollers, boolean suspension) {
+    this(machineKey, colorIndex);
+    this.rollers = rollers;
+    this.suspension = suspension;
+  }
+
+  public String getMachineKey() {
+    return this.machineKey;
+  }
+
+  public int getColorIndex() {
+    return this.colorIndex;
+  }
 }
 
 class Mini4WD {
-  protected Spec spec;
-  protected Structore structore;
+  private Spec spec;
+  private Structure structure;
 
-  public Mini4WD(Parts battery) {
-    this.structore = new Structore();
-    this.structore.battery = battery;
+  public Mini4WD(Structure structure) {
+    this.structure = structure;
   }
 
   public int getTotalCosts() {
-    return this.structore.battery.costYen;
+    return 1;
   }
   
   public int getTotalWeight() {
-    return this.structore.battery.weightG;
+    return 1;
   }
 }
 
 class NormalMini4WD extends Mini4WD {
-  public NormalMini4WD(Parts battery) {
-    super(battery);
+  public NormalMini4WD(Structure structure) {
+    super(structure);
   }
 }
 
 // AbstractFactory
 interface Mini4WDFactory {
-  abstract public Mini4WD createMini4wd();
+  abstract public Structure createStructure(CreateOrder order);
+  abstract public Mini4WD createMini4WD(CreateOrder order);
+  abstract public Parts createBody(CreateOrder order);
   abstract public Parts createBattery();
 }
 
 class NormalMini4WDFactory implements Mini4WDFactory {
   @Override
-  public Mini4WD createMini4wd() {
-    Parts battery = this.createBattery();
-    return new NormalMini4WD(battery);
+  public Structure createStructure(CreateOrder order) {
+    Parts body = this.createBody(order);
+    Parts battery = this.createBattery();  
+    return new Structure(body, battery);
+  }
+  @Override
+  public Mini4WD createMini4WD(CreateOrder order) {
+    Structure structure = this.createStructure(order);
+    return new NormalMini4WD(structure);
+  }
+  
+  @Override
+  public Parts createBody(CreateOrder order) {
+    return new Body(order.getColorIndex());
   }
 
   @Override
@@ -58,8 +106,8 @@ class NormalMini4WDFactory implements Mini4WDFactory {
 
 // Parts
 class Parts {
-  protected int costYen;
-  protected int weightG;
+  private int costYen;
+  private int weightG;
 
   public Parts(int costYen, int weightG) {
     this.costYen = costYen;
@@ -75,6 +123,21 @@ class Parts {
   }
 }
 
+class Body extends Parts {
+  public static final double POWER_W = 1.5;
+  public static final String[] COLOR_LIST = {
+    "red","blue","green","black","yellow","pink"
+  };
+
+  private String color;
+  
+  public Body(int index) {
+    super(150, 30);
+    int len = Body.COLOR_LIST.length;
+    this.color = Body.COLOR_LIST[index % len];
+  }
+}
+
 class Battery extends Parts {
   public static final double POWER_W = 1.5;
 
@@ -85,17 +148,17 @@ class Battery extends Parts {
 
 // Course
 abstract class CourseAssistant {
-  protected boolean laneChange;
-  protected double upDown;
-  protected int corner;
+  private boolean laneChange;
+  private double upDown;
+  private int corner;
   
-  protected CourseAssistant(boolean laneChange, double upDown, int corner) {
+  public CourseAssistant(boolean laneChange, double upDown, int corner) {
     this.laneChange = laneChange;
     this.upDown = upDown;
     this.corner = corner;
   }
 
-  abstract public void raceMini4WD(Mini4WD machine);
+  abstract public void race(Mini4WD machine);
 }
 
 class EasyCourse extends CourseAssistant {
@@ -104,7 +167,7 @@ class EasyCourse extends CourseAssistant {
   }
 
   @Override
-  public void raceMini4WD(Mini4WD machine) {
+  public void race(Mini4WD machine) {
     System.out.println("easy");
   }
 }
@@ -119,9 +182,9 @@ class FairyWorld {
     mini4WDMap.put("normal", new NormalMini4WDFactory());
   }
 
-  public void run(String courseKey, String machineKey) {
-    Mini4WD machine = mini4WDMap.get(machineKey).createMini4wd();
-    this.courseMap.get(courseKey).raceMini4WD(machine);
+  public void run(String courseKey, CreateOrder order) {
+    Mini4WD machine = mini4WDMap.get(order.getMachineKey()).createMini4WD(order);
+    this.courseMap.get(courseKey).race(machine);
     System.out.println("test-OK");
   }
 }
@@ -129,6 +192,7 @@ class FairyWorld {
 class ToyKits {
   public static void main(String[] args) {
     FairyWorld fairyWorld = new FairyWorld();
-    fairyWorld.run("easy", "normal");
+    CreateOrder order = new CreateOrder("normal", 10);
+    fairyWorld.run("easy", order);
   }
 }
