@@ -1,3 +1,5 @@
+package VirtualRides;
+
 import java.util.Map;
 import java.util.HashMap;
 
@@ -162,7 +164,7 @@ class FairyWorld {
     }
 }
 
-class VirtualRides {
+class Main {
     public static void main(String[] args){
         FairyWorld fairyWorld = new FairyWorld();
         Person araisan = new Person("Arai", "Takahiro", 1.89, 102.5);

@@ -1,3 +1,5 @@
+package PlayLaserTag;
+
 import java.util.Arrays;
 import java.util.Random;
 
@@ -685,7 +687,7 @@ class FairyWorld {
     }
 }
 
-class AbstractFactory {
+class Main {
     public static void main(String[] args) {
         FairyWorld fairyWorld = new FairyWorld();
         Person jessica = new Person("Jessica", "Roller");

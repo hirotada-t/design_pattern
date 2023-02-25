@@ -1,3 +1,5 @@
+package PlayfulPetsAdventures;
+
 import java.util.Random;
 import java.util.List;
 import java.util.Map;
@@ -607,7 +609,7 @@ class FairyWorld{
     }
 }
 
-class PlayfulPetsAdventures{
+class Main{
     public static void main(String[] args){
         FairyWorld fairyWorld = new FairyWorld();
         Person jessica = new Person("Jessica", "Roller", 30, 1.65, 55, "female");

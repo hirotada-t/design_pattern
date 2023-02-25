@@ -24,7 +24,7 @@ class FairyWorld {
   }
 }
 
-class Main {
+public class Main {
   public static void main(String[] args) {
     FairyWorld fairyWorld = new FairyWorld();
     CreateOrder order = new CreateOrder("normal", 10);

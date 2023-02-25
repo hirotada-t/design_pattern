@@ -1,9 +1,11 @@
 {
+  "java.project.outputPath": "bin",
+  "java.project.referencedLibraries": [
+      "lib/**/*.jar"
+  ],
   "java.debug.settings.onBuildFailureProceed": true,
   "java.project.sourcePaths": [
-    "SampleTST",
     "FactoryMethod",
-    "AbstractFactory",
-    "Sample"
+    "AbstractFactory"
   ]
 }
