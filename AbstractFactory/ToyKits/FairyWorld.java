@@ -1,11 +1,12 @@
 package ToyKits;
 
 import java.util.HashMap;
+
+import ToyKits.util.Mini4WDFactory;
 import ToyKits.util.area.CourseAssistant;
 import ToyKits.util.area.EasyCourse;
-import ToyKits.util.Mini4WDFactory;
-import ToyKits.util.NormalMini4WDFactory;
-import ToyKits.util.Mini4WD;
+import ToyKits.util.product.Mini4WD;
+import ToyKits.util.product.NormalMini4WDFactory;
 
 public class FairyWorld {
   public HashMap<String, CourseAssistant> courseMap = new HashMap<>();

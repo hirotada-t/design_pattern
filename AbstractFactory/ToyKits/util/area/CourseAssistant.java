@@ -1,6 +1,6 @@
 package ToyKits.util.area;
 
-import ToyKits.util.Mini4WD;
+import ToyKits.util.product.Mini4WD;
 
 public abstract class CourseAssistant {
   protected boolean laneChange;
