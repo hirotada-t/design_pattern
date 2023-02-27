@@ -5,7 +5,12 @@ import ToyKits.util.product.Mini4WD;
 import ToyKits.util.product.NormalMini4WD;
 import ToyKits.util.product.component.Battery;
 import ToyKits.util.product.component.Body;
+import ToyKits.util.product.component.Chassis;
+import ToyKits.util.product.component.Motor;
 import ToyKits.util.product.component.Parts;
+import ToyKits.util.product.component.Rollers;
+import ToyKits.util.product.component.Suspension;
+import ToyKits.util.product.component.Tyres;
 
 public class NormalMini4WDFactory implements Mini4WDFactory {
   @Override
@@ -22,43 +27,37 @@ public class NormalMini4WDFactory implements Mini4WDFactory {
   }
 
   @Override
-  public Parts createBody(Mini4WDOrder order) {
+  public Body createBody(Mini4WDOrder order) {
     return new Body(order.getColorIndex());
   }
 
   @Override
-  public Parts createBattery() {
+  public Battery createBattery() {
     return new Battery();
   }
 
   @Override
-  public Parts createChassis(Mini4WDOrder order) {
-    // TODO Auto-generated method stub
+  public Chassis createChassis(Mini4WDOrder order) {
     return null;
   }
 
   @Override
-  public Parts createMotor(Mini4WDOrder order) {
-    // TODO Auto-generated method stub
+  public Motor createMotor(Mini4WDOrder order) {
     return null;
   }
 
   @Override
-  public Parts createTyres(Mini4WDOrder order) {
-    // TODO Auto-generated method stub
+  public Tyres createTyres(Mini4WDOrder order) {
     return null;
   }
 
   @Override
-  public Parts createRollers(Mini4WDOrder order) {
-    // TODO Auto-generated method stub
+  public Rollers createRollers(Mini4WDOrder order) {
     return null;
   }
 
   @Override
-  public Parts createSuspension(Mini4WDOrder order) {
-    // TODO Auto-generated method stub
+  public Suspension createSuspension(Mini4WDOrder order) {
     return null;
   }
-
 }
