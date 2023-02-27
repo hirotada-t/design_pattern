@@ -2,8 +2,8 @@ package ToyKits.util.area;
 
 import ToyKits.util.product.Mini4WD;
 
-public class EasyCourse extends CourseAssistant {
-    public EasyCourse() {
+public class HardCourseAssistant extends CourseAssistant {
+    public HardCourseAssistant() {
       super(false, 0, 4);
     }
   

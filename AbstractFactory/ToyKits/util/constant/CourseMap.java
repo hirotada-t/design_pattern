@@ -1,22 +1,22 @@
 package ToyKits.util.constant;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
-import ToyKits.util.area.ClimbCourse;
-import ToyKits.util.area.CornerCourse;
+import ToyKits.util.area.ClimbCourseAssistant;
+import ToyKits.util.area.CornerCourseAssistant;
 import ToyKits.util.area.CourseAssistant;
-import ToyKits.util.area.EasyCourse;
-import ToyKits.util.area.HardCourse;
-import ToyKits.util.area.StraightCourse;
+import ToyKits.util.area.EasyCourseAssistant;
+import ToyKits.util.area.HardCourseAssistant;
+import ToyKits.util.area.StraightCourseAssistant;
 
 public class CourseMap {
-  public static final HashMap<String, CourseAssistant> map = new HashMap<>(){
+  public static final LinkedHashMap<String, CourseAssistant> map = new LinkedHashMap<>(){
     {
-      put("easy", new EasyCourse());
-      put("straight", new StraightCourse());
-      put("climb", new ClimbCourse());
-      put("corner", new CornerCourse());
-      put("hard", new HardCourse());
+      put("easy", new EasyCourseAssistant());
+      put("straight", new StraightCourseAssistant());
+      put("climb", new ClimbCourseAssistant());
+      put("corner", new CornerCourseAssistant());
+      put("hard", new HardCourseAssistant());
     }
   };
 
