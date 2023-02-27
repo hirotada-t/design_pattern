@@ -1,4 +1,4 @@
-package ToyKits;
+package ToyKits.util;
 
 public class CreateOrder {
   protected String machineKey;

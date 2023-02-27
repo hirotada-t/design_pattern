@@ -1,4 +1,4 @@
-package ToyKits.util.component;
+package ToyKits.util.product.component;
 
 public class Battery extends Parts {
   public static final double POWER_W = 1.5;

@@ -1,4 +1,4 @@
-package ToyKits.util.component;
+package ToyKits.util.product.component;
 
 public class Parts {
   private int costYen;

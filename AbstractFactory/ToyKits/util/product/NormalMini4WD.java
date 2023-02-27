@@ -1,6 +1,6 @@
-package ToyKits.util;
+package ToyKits.util.product;
 
-import ToyKits.util.product.Mini4WD;
+import ToyKits.util.create.Structure;
 
 public class NormalMini4WD extends Mini4WD {
   public NormalMini4WD(Structure structure) {

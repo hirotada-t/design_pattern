@@ -1,14 +1,13 @@
-package ToyKits.util.product;
+package ToyKits.util.create;
 
-import ToyKits.CreateOrder;
-import ToyKits.util.Mini4WDFactory;
-import ToyKits.util.NormalMini4WD;
-import ToyKits.util.Structure;
-import ToyKits.util.component.Battery;
-import ToyKits.util.component.Body;
-import ToyKits.util.component.Parts;
+import ToyKits.util.CreateOrder;
+import ToyKits.util.product.Mini4WD;
+import ToyKits.util.product.ClimbMini4WD;
+import ToyKits.util.product.component.Battery;
+import ToyKits.util.product.component.Body;
+import ToyKits.util.product.component.Parts;
 
-public class NormalMini4WDFactory implements Mini4WDFactory {
+public class ClimbMini4WDFactory implements Mini4WDFactory {
   @Override
   public Structure createStructure(CreateOrder order) {
     Parts body = this.createBody(order);
@@ -19,7 +18,7 @@ public class NormalMini4WDFactory implements Mini4WDFactory {
   @Override
   public Mini4WD createMini4WD(CreateOrder order) {
     Structure structure = this.createStructure(order);
-    return new NormalMini4WD(structure);
+    return new ClimbMini4WD(structure);
   }
 
   @Override

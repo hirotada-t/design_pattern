@@ -1,7 +1,7 @@
-package ToyKits.util;
-import ToyKits.CreateOrder;
-import ToyKits.util.component.Parts;
+package ToyKits.util.create;
+import ToyKits.util.CreateOrder;
 import ToyKits.util.product.Mini4WD;
+import ToyKits.util.product.component.Parts;
 
 // AbstractFactory
 public interface Mini4WDFactory {

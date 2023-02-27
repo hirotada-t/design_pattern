@@ -1,6 +1,6 @@
-package ToyKits.util;
+package ToyKits.util.create;
 
-import ToyKits.util.component.Parts;
+import ToyKits.util.product.component.Parts;
 
 public class Structure {
   protected Parts body;

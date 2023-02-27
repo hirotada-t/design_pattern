@@ -1,6 +1,6 @@
 package ToyKits.util.product;
 
-import ToyKits.util.Structure;
+import ToyKits.util.create.Structure;
 
 public class Mini4WD {
   protected Spec spec;
