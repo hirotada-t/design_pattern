@@ -30,7 +30,7 @@ public class FairyWorld {
     mini4WDMap.put("straight", new StraightMini4WDFactory());
   }
 
-  public void run(String courseKey, CreateOrder order) {
+  public void run(String courseKey, Mini4WDOrder order) {
     Mini4WD machine = mini4WDMap.get(order.getMachineKey()).createMini4WD(order);
     this.courseMap.get(courseKey).race(machine);
     System.out.println("test-OK");

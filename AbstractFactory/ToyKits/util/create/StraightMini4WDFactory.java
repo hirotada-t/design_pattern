@@ -1,6 +1,6 @@
 package ToyKits.util.create;
 
-import ToyKits.util.CreateOrder;
+import ToyKits.util.Mini4WDOrder;
 import ToyKits.util.product.Mini4WD;
 import ToyKits.util.product.StraightMini4WD;
 import ToyKits.util.product.component.Battery;
