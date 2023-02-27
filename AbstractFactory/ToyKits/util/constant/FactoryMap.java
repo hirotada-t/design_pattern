@@ -17,7 +17,7 @@ public class FactoryMap {
     }
   };
 
-  protected static String[] machineKey() {
+  public static String[] machineKey() {
     int size = FactoryMap.map.size();
     return FactoryMap.map.keySet().toArray(new String[size]);
   }

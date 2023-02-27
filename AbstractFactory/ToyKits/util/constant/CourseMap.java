@@ -20,8 +20,8 @@ public class CourseMap {
     }
   };
 
-  protected static String[] machineKey() {
-    int size = FactoryMap.map.size();
-    return FactoryMap.map.keySet().toArray(new String[size]);
+  public static String[] courseKey() {
+    int size = CourseMap.map.size();
+    return CourseMap.map.keySet().toArray(new String[size]);
   }
 }

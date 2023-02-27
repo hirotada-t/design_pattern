@@ -2,6 +2,8 @@ package ToyKits.util;
 
 import java.util.Arrays;
 import ToyKits.util.constant.AllowedOrder;
+import ToyKits.util.constant.FactoryMap;
+import ToyKits.util.constant.Func;
 
 public class Mini4WDOrder {
   protected String machineKey;
@@ -11,7 +13,7 @@ public class Mini4WDOrder {
 
   public Mini4WDOrder(String machineKey, int colorIndex) throws InvalidOrderException {
     if (!Arrays.asList(AllowedOrder.machineKey).contains(machineKey)) {
-      throw new InvalidOrderException("Invalid machineKey: \n" + AllowedOrder.machineKeyString());
+      throw new InvalidOrderException("Invalid machineKey: \n" + Func.arrToString(FactoryMap.machineKey()));
     }
     if (colorIndex < 0) {
       throw new InvalidOrderException("Invalid colorIndex: Only integers greater than or equal to zero are permitted.");
