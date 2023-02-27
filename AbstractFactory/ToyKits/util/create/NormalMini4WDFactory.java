@@ -30,4 +30,35 @@ public class NormalMini4WDFactory implements Mini4WDFactory {
   public Parts createBattery() {
     return new Battery();
   }
+
+  @Override
+  public Parts createChassis(CreateOrder order) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public Parts createMotor(CreateOrder order) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public Parts createTyres(CreateOrder order) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public Parts createRollers(CreateOrder order) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public Parts createSuspension(CreateOrder order) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
 }

@@ -1,8 +1,8 @@
 package ToyKits.util.product.component;
 
 public class Parts {
-  private int costYen;
-  private int weightG;
+  protected int costYen;
+  protected int weightG;
 
   public Parts(int costYen, int weightG) {
     this.costYen = costYen;
